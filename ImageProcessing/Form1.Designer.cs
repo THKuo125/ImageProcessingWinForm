@@ -31,7 +31,7 @@ namespace ImageProcessing
         {
             this.OpenButton = new System.Windows.Forms.Button();
             this.SaveButton = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.Original_Image_Box = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.PhotoWH = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -44,7 +44,7 @@ namespace ImageProcessing
             this.H_G = new System.Windows.Forms.PictureBox();
             this.H_B = new System.Windows.Forms.PictureBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.Result_Image_Box = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.PhotoWH_R = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -57,20 +57,28 @@ namespace ImageProcessing
             this.H_G_R = new System.Windows.Forms.PictureBox();
             this.H_B_R = new System.Windows.Forms.PictureBox();
             this.label11 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.UndoButton = new System.Windows.Forms.Button();
+            this.OriginalButton = new System.Windows.Forms.Button();
+            this.MeanWeightButton = new System.Windows.Forms.Button();
+            this.MeanValueButton = new System.Windows.Forms.Button();
+            this.MaximumButton = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label7 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.Original_Image_Box)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.O_R_Band)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.O_G_Band)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.O_B_Band)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.H_R)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.H_G)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.H_B)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Result_Image_Box)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.O_R_Band_R)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.O_G_Band_R)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.O_B_Band_R)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.H_R_R)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.H_G_R)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.H_B_R)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // OpenButton
@@ -95,16 +103,16 @@ namespace ImageProcessing
             this.SaveButton.UseVisualStyleBackColor = true;
             this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
             // 
-            // pictureBox1
+            // Original_Image_Box
             // 
-            this.pictureBox1.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox1.Location = new System.Drawing.Point(29, 77);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(360, 360);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
+            this.Original_Image_Box.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.Original_Image_Box.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Original_Image_Box.Location = new System.Drawing.Point(29, 77);
+            this.Original_Image_Box.Name = "Original_Image_Box";
+            this.Original_Image_Box.Size = new System.Drawing.Size(360, 360);
+            this.Original_Image_Box.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Original_Image_Box.TabIndex = 2;
+            this.Original_Image_Box.TabStop = false;
             // 
             // label1
             // 
@@ -235,16 +243,16 @@ namespace ImageProcessing
             this.label6.TabIndex = 12;
             this.label6.Text = "直方圖";
             // 
-            // pictureBox2
+            // Result_Image_Box
             // 
-            this.pictureBox2.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.pictureBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox2.Location = new System.Drawing.Point(403, 77);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(360, 360);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 2;
-            this.pictureBox2.TabStop = false;
+            this.Result_Image_Box.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.Result_Image_Box.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Result_Image_Box.Location = new System.Drawing.Point(403, 77);
+            this.Result_Image_Box.Name = "Result_Image_Box";
+            this.Result_Image_Box.Size = new System.Drawing.Size(360, 360);
+            this.Result_Image_Box.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Result_Image_Box.TabIndex = 2;
+            this.Result_Image_Box.TabStop = false;
             // 
             // label2
             // 
@@ -375,11 +383,91 @@ namespace ImageProcessing
             this.label11.TabIndex = 12;
             this.label11.Text = "Result 直方圖";
             // 
+            // UndoButton
+            // 
+            this.UndoButton.Font = new System.Drawing.Font("微軟正黑體", 9.75F);
+            this.UndoButton.Location = new System.Drawing.Point(877, 12);
+            this.UndoButton.Name = "UndoButton";
+            this.UndoButton.Size = new System.Drawing.Size(74, 29);
+            this.UndoButton.TabIndex = 14;
+            this.UndoButton.Text = "Undo";
+            this.UndoButton.UseVisualStyleBackColor = true;
+            this.UndoButton.Click += new System.EventHandler(this.UndoButton_Click);
+            // 
+            // OriginalButton
+            // 
+            this.OriginalButton.Font = new System.Drawing.Font("微軟正黑體", 9.75F);
+            this.OriginalButton.Location = new System.Drawing.Point(784, 12);
+            this.OriginalButton.Name = "OriginalButton";
+            this.OriginalButton.Size = new System.Drawing.Size(74, 29);
+            this.OriginalButton.TabIndex = 15;
+            this.OriginalButton.Text = "Original";
+            this.OriginalButton.UseVisualStyleBackColor = true;
+            this.OriginalButton.Click += new System.EventHandler(this.OriginalButton_Click);
+            // 
+            // MeanWeightButton
+            // 
+            this.MeanWeightButton.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.MeanWeightButton.Location = new System.Drawing.Point(7, 48);
+            this.MeanWeightButton.Name = "MeanWeightButton";
+            this.MeanWeightButton.Size = new System.Drawing.Size(96, 37);
+            this.MeanWeightButton.TabIndex = 0;
+            this.MeanWeightButton.Text = "Mean-Weight";
+            this.MeanWeightButton.UseVisualStyleBackColor = true;
+            this.MeanWeightButton.Click += new System.EventHandler(this.MeanWeightButton_Click);
+            // 
+            // MeanValueButton
+            // 
+            this.MeanValueButton.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.MeanValueButton.Location = new System.Drawing.Point(109, 48);
+            this.MeanValueButton.Name = "MeanValueButton";
+            this.MeanValueButton.Size = new System.Drawing.Size(96, 37);
+            this.MeanValueButton.TabIndex = 0;
+            this.MeanValueButton.Text = "Mean-Value";
+            this.MeanValueButton.UseVisualStyleBackColor = true;
+            this.MeanValueButton.Click += new System.EventHandler(this.MeanValueButton_Click);
+            // 
+            // MaximumButton
+            // 
+            this.MaximumButton.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.MaximumButton.Location = new System.Drawing.Point(211, 48);
+            this.MaximumButton.Name = "MaximumButton";
+            this.MaximumButton.Size = new System.Drawing.Size(96, 37);
+            this.MaximumButton.TabIndex = 0;
+            this.MaximumButton.Text = "Maximum";
+            this.MaximumButton.UseVisualStyleBackColor = true;
+            this.MaximumButton.Click += new System.EventHandler(this.MaximumButton_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Silver;
+            this.panel1.Controls.Add(this.label7);
+            this.panel1.Controls.Add(this.MaximumButton);
+            this.panel1.Controls.Add(this.MeanValueButton);
+            this.panel1.Controls.Add(this.MeanWeightButton);
+            this.panel1.Location = new System.Drawing.Point(784, 77);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(314, 98);
+            this.panel1.TabIndex = 16;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label7.Location = new System.Drawing.Point(12, 9);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(101, 24);
+            this.label7.TabIndex = 1;
+            this.label7.Text = "GrayScale";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1139, 770);
+            this.ClientSize = new System.Drawing.Size(1114, 770);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.OriginalButton);
+            this.Controls.Add(this.UndoButton);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.H_B_R);
@@ -403,27 +491,29 @@ namespace ImageProcessing
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.PhotoWH);
-            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.Result_Image_Box);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.Original_Image_Box);
             this.Controls.Add(this.SaveButton);
             this.Controls.Add(this.OpenButton);
             this.Name = "Form1";
             this.Text = "Form1";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Original_Image_Box)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.O_R_Band)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.O_G_Band)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.O_B_Band)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.H_R)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.H_G)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.H_B)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Result_Image_Box)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.O_R_Band_R)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.O_G_Band_R)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.O_B_Band_R)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.H_R_R)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.H_G_R)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.H_B_R)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -433,7 +523,7 @@ namespace ImageProcessing
 
         private System.Windows.Forms.Button OpenButton;
         private System.Windows.Forms.Button SaveButton;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox Original_Image_Box;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label PhotoWH;
         private System.Windows.Forms.Label label3;
@@ -446,7 +536,7 @@ namespace ImageProcessing
         private System.Windows.Forms.PictureBox H_G;
         private System.Windows.Forms.PictureBox H_B;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox Result_Image_Box;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label PhotoWH_R;
         private System.Windows.Forms.Label label8;
@@ -459,6 +549,13 @@ namespace ImageProcessing
         private System.Windows.Forms.PictureBox H_G_R;
         private System.Windows.Forms.PictureBox H_B_R;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Button UndoButton;
+        private System.Windows.Forms.Button OriginalButton;
+        private System.Windows.Forms.Button MaximumButton;
+        private System.Windows.Forms.Button MeanValueButton;
+        private System.Windows.Forms.Button MeanWeightButton;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label7;
     }
 }
 

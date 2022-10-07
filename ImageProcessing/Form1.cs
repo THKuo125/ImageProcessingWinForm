@@ -15,6 +15,9 @@ namespace ImageProcessing
     {   
         static Bitmap img = new Bitmap(1, 1);
         static Bitmap img_origin = new Bitmap(1, 1);
+        static Bitmap img_result = new Bitmap(1, 1);
+        GrayScale grayScale = new GrayScale();
+        Stack<Bitmap> StepStack = new Stack<Bitmap>();
 
         public Form1()
         {
@@ -25,7 +28,12 @@ namespace ImageProcessing
             O_R_Band.Image = null;
             O_G_Band.Image = null;
             O_B_Band.Image = null;
+            O_R_Band_R.Image = null;
+            O_G_Band_R.Image = null;
+            O_B_Band_R.Image = null;
             PhotoWH.Text = "0x0";
+            PhotoWH_R.Text = "0x0";
+            StepStack.Clear();
         }
 
         private void OpenButton_Click(object sender, EventArgs e)
@@ -43,7 +51,9 @@ namespace ImageProcessing
                 img = new Bitmap(Image.FromFile(openFileDialog.FileName));  //圖片轉Bitmap格式
                 img_origin = new Bitmap(img);
 
-                pictureBox1.Image = img_origin;
+                StepStack.Push(img);
+
+                Original_Image_Box.Image = img_origin;
                 PhotoWH.Text = "" + img.Width.ToString() + "x" + img.Height.ToString();
 
                 ShowBand();
@@ -261,14 +271,14 @@ namespace ImageProcessing
             int[,,] GBand = new int[img.Width, img.Height, 3];
             int[,,] BBand = new int[img.Width, img.Height, 3];
 
-            BitmapData byerArray = img.LockBits(new Rectangle(0, 0, img.Width, img.Height), ImageLockMode.ReadWrite, PixelFormat.Format24bppRgb);
-            int ByteOfSkip = byerArray.Stride - byerArray.Width * 3;
+            BitmapData byteArray = img_result.LockBits(new Rectangle(0, 0, img_result.Width, img_result.Height), ImageLockMode.ReadWrite, PixelFormat.Format24bppRgb);
+            int ByteOfSkip = byteArray.Stride - byteArray.Width * 3;
             unsafe
             {
-                byte* imgPtr = (byte*)(byerArray.Scan0);
-                for (int y = 0; y < byerArray.Height; y++)
+                byte* imgPtr = (byte*)(byteArray.Scan0);
+                for (int y = 0; y < byteArray.Height; y++)
                 {
-                    for (int x = 0; x < byerArray.Width; x++)
+                    for (int x = 0; x < byteArray.Width; x++)
                     {
                         BBand[x, y, 2] = (int)*(imgPtr);
                         BBand[x, y, 1] = (int)*(imgPtr);
@@ -289,7 +299,7 @@ namespace ImageProcessing
                 }
             }
 
-            img.UnlockBits(byerArray);
+            img_result.UnlockBits(byteArray);
             //設定圖片顯示R
             O_R_Band_R.Image = SetRGBData(RBand);
             //圖片顯示G
@@ -300,42 +310,42 @@ namespace ImageProcessing
 
         private void Histogram_R()
         {
-            int[] origin_r = new int[256];
-            int[] origin_g = new int[256];
-            int[] origin_b = new int[256];
-            PhotoWH_R.Text = img.Width + "x" + img.Height;
-            for (int x = 0; x < img.Width; x++)
+            int[] result_r = new int[256];
+            int[] result_g = new int[256];
+            int[] result_b = new int[256];
+            PhotoWH_R.Text = img_result.Width + "x" + img_result.Height;
+            for (int x = 0; x < img_result.Width; x++)
             {
-                for (int y = 0; y < img.Height; y++)
+                for (int y = 0; y < img_result.Height; y++)
                 {
-                    Color pixelColor = img.GetPixel(x, y);
-                    origin_r[pixelColor.R]++;
-                    origin_g[pixelColor.G]++;
-                    origin_b[pixelColor.B]++;
+                    Color pixelColor = img_result.GetPixel(x, y);
+                    result_r[pixelColor.R]++;
+                    result_g[pixelColor.G]++;
+                    result_b[pixelColor.B]++;
                 }
             }
             int max_times = 0;
 
             for (int i = 0; i < 256; i++)
             {
-                if (max_times < origin_r[i])
+                if (max_times < result_r[i])
                 {
-                    max_times = origin_r[i];
+                    max_times = result_r[i];
                 }
-                if (max_times < origin_g[i])
+                if (max_times < result_g[i])
                 {
-                    max_times = origin_g[i];
+                    max_times = result_g[i];
                 }
-                if (max_times < origin_b[i])
+                if (max_times < result_b[i])
                 {
-                    max_times = origin_b[i];
+                    max_times = result_b[i];
                 }
             }
 
             Bitmap imgR = new Bitmap(256, 100);
             for (int x = 0; x < imgR.Width; x++)
             {
-                for (int y = 0; y < (int)(((float)origin_r[x] / max_times) * 100); y++)
+                for (int y = 0; y < (int)(((float)result_r[x] / max_times) * 100); y++)
                 {
                     imgR.SetPixel(x, imgR.Height - 1 - y, Color.FromArgb(255, 0, 0));
                 }
@@ -345,7 +355,7 @@ namespace ImageProcessing
             Bitmap imgG = new Bitmap(256, 100);
             for (int x = 0; x < imgG.Width; x++)
             {
-                for (int y = 0; y < (int)(((float)origin_g[x] / max_times) * 100); y++)
+                for (int y = 0; y < (int)(((float)result_g[x] / max_times) * 100); y++)
                 {
                     imgG.SetPixel(x, imgG.Height - 1 - y, Color.FromArgb(0, 255, 0));
                 }
@@ -355,12 +365,87 @@ namespace ImageProcessing
             Bitmap imgB = new Bitmap(256, 100);
             for (int x = 0; x < imgB.Width; x++)
             {
-                for (int y = 0; y < (int)(((float)origin_b[x] / max_times) * 100); y++)
+                for (int y = 0; y < (int)(((float)result_b[x] / max_times) * 100); y++)
                 {
                     imgB.SetPixel(x, imgB.Height - 1 - y, Color.FromArgb(0, 0, 255));
                 }
             }
             H_B_R.Image = imgB;
+        }
+
+        private void UndoButton_Click(object sender, EventArgs e)
+        {
+            if(StepStack.Count > 0)
+            {
+                StepStack.Pop();
+            }
+            if(StepStack.Count > 0)
+            {
+                img = StepStack.Pop();
+                Result_Image_Box.Image = img;
+
+                img_result = img;
+                ShowBand_R();
+                Histogram_R();
+
+                StepStack.Push(img);
+            }
+            else if(StepStack.Count == 0)
+            {
+                StepStack.Push(img_origin);
+            }
+        }
+
+        private void OriginalButton_Click(object sender, EventArgs e)
+        {
+            Result_Image_Box.Image = img_origin;
+            img_result = img_origin;
+            ShowBand_R();
+            Histogram_R();
+
+            StepStack.Clear();
+            StepStack.Push(img_origin);
+            img = img_origin;
+        }
+
+        private void MeanWeightButton_Click(object sender, EventArgs e)
+        {
+            int[,,] rgb = GetRGBData(img_origin);
+            Bitmap img_R = SetRGBData(grayScale.Mean_Weight(rgb, img.Width, img.Height));
+            Result_Image_Box.Image = img_R;
+
+            StepStack.Push(img_R);
+
+            img_result = img_R;
+            ShowBand_R();
+            Histogram_R();
+            
+        }
+
+        private void MeanValueButton_Click(object sender, EventArgs e)
+        {
+            int[,,] rgb = GetRGBData(img_origin);
+            Bitmap img_R = SetRGBData(grayScale.Mean_Value(rgb, img.Width, img.Height));
+            Result_Image_Box.Image = img_R;
+
+            StepStack.Push(img_R);
+
+            img_result = img_R;
+            ShowBand_R();
+            Histogram_R();
+        }
+
+        private void MaximumButton_Click(object sender, EventArgs e)
+        {
+            int[,,] rgb = GetRGBData(img_origin);
+            Bitmap img_R = SetRGBData(grayScale.Maximum(rgb, img.Width, img.Height));
+            Result_Image_Box.Image = img_R;
+
+            StepStack.Push(img_R);
+
+            img_result = img_R;
+            ShowBand_R();
+            Histogram_R();
         }
     }
 }
