@@ -18,6 +18,7 @@ namespace ImageProcessing
         static Bitmap img_result = new Bitmap(1, 1);
         GrayScale grayScale = new GrayScale();
         Stack<Bitmap> StepStack = new Stack<Bitmap>();
+        Contrast contrast = new Contrast();
 
         public Form1()
         {
@@ -439,6 +440,19 @@ namespace ImageProcessing
         {
             int[,,] rgb = GetRGBData(img_origin);
             Bitmap img_R = SetRGBData(grayScale.Maximum(rgb, img.Width, img.Height));
+            Result_Image_Box.Image = img_R;
+
+            StepStack.Push(img_R);
+
+            img_result = img_R;
+            ShowBand_R();
+            Histogram_R();
+        }
+
+        private void NegativeButton_Click(object sender, EventArgs e)
+        {
+            int[,,] rgb = GetRGBData(img_origin);
+            Bitmap img_R = SetRGBData(contrast.Negative(rgb, img.Width, img.Height));
             Result_Image_Box.Image = img_R;
 
             StepStack.Push(img_R);

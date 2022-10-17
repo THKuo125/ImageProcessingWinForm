@@ -64,6 +64,8 @@ namespace ImageProcessing
             this.MaximumButton = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
+            this.NegativeButton = new System.Windows.Forms.Button();
+            this.label12 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.Original_Image_Box)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.O_R_Band)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.O_G_Band)).BeginInit();
@@ -408,7 +410,7 @@ namespace ImageProcessing
             // MeanWeightButton
             // 
             this.MeanWeightButton.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.MeanWeightButton.Location = new System.Drawing.Point(7, 48);
+            this.MeanWeightButton.Location = new System.Drawing.Point(8, 46);
             this.MeanWeightButton.Name = "MeanWeightButton";
             this.MeanWeightButton.Size = new System.Drawing.Size(96, 37);
             this.MeanWeightButton.TabIndex = 0;
@@ -419,7 +421,7 @@ namespace ImageProcessing
             // MeanValueButton
             // 
             this.MeanValueButton.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.MeanValueButton.Location = new System.Drawing.Point(109, 48);
+            this.MeanValueButton.Location = new System.Drawing.Point(110, 46);
             this.MeanValueButton.Name = "MeanValueButton";
             this.MeanValueButton.Size = new System.Drawing.Size(96, 37);
             this.MeanValueButton.TabIndex = 0;
@@ -430,7 +432,7 @@ namespace ImageProcessing
             // MaximumButton
             // 
             this.MaximumButton.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.MaximumButton.Location = new System.Drawing.Point(211, 48);
+            this.MaximumButton.Location = new System.Drawing.Point(212, 46);
             this.MaximumButton.Name = "MaximumButton";
             this.MaximumButton.Size = new System.Drawing.Size(96, 37);
             this.MaximumButton.TabIndex = 0;
@@ -441,13 +443,15 @@ namespace ImageProcessing
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Silver;
+            this.panel1.Controls.Add(this.NegativeButton);
+            this.panel1.Controls.Add(this.label12);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.MaximumButton);
             this.panel1.Controls.Add(this.MeanValueButton);
             this.panel1.Controls.Add(this.MeanWeightButton);
             this.panel1.Location = new System.Drawing.Point(784, 77);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(314, 98);
+            this.panel1.Size = new System.Drawing.Size(314, 360);
             this.panel1.TabIndex = 16;
             // 
             // label7
@@ -459,6 +463,27 @@ namespace ImageProcessing
             this.label7.Size = new System.Drawing.Size(101, 24);
             this.label7.TabIndex = 1;
             this.label7.Text = "GrayScale";
+            // 
+            // NegativeButton
+            // 
+            this.NegativeButton.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.NegativeButton.Location = new System.Drawing.Point(8, 140);
+            this.NegativeButton.Name = "NegativeButton";
+            this.NegativeButton.Size = new System.Drawing.Size(96, 37);
+            this.NegativeButton.TabIndex = 17;
+            this.NegativeButton.Text = "Negative";
+            this.NegativeButton.UseVisualStyleBackColor = true;
+            this.NegativeButton.Click += new System.EventHandler(this.NegativeButton_Click);
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label12.Location = new System.Drawing.Point(12, 104);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(89, 24);
+            this.label12.TabIndex = 1;
+            this.label12.Text = "Contrast";
             // 
             // Form1
             // 
@@ -556,6 +581,8 @@ namespace ImageProcessing
         private System.Windows.Forms.Button MeanWeightButton;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button NegativeButton;
+        private System.Windows.Forms.Label label12;
     }
 }
 
