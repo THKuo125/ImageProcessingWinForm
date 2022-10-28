@@ -63,9 +63,17 @@ namespace ImageProcessing
             this.MeanValueButton = new System.Windows.Forms.Button();
             this.MaximumButton = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label7 = new System.Windows.Forms.Label();
+            this.EqualizationButton = new System.Windows.Forms.Button();
+            this.MaxFilterButton = new System.Windows.Forms.Button();
+            this.GammaButton = new System.Windows.Forms.Button();
+            this.MedFilterButton = new System.Windows.Forms.Button();
+            this.MeanFilterButton = new System.Windows.Forms.Button();
+            this.MinFilterButton = new System.Windows.Forms.Button();
+            this.LogButton = new System.Windows.Forms.Button();
+            this.label13 = new System.Windows.Forms.Label();
             this.NegativeButton = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.Original_Image_Box)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.O_R_Band)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.O_G_Band)).BeginInit();
@@ -443,6 +451,14 @@ namespace ImageProcessing
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Silver;
+            this.panel1.Controls.Add(this.EqualizationButton);
+            this.panel1.Controls.Add(this.MaxFilterButton);
+            this.panel1.Controls.Add(this.GammaButton);
+            this.panel1.Controls.Add(this.MedFilterButton);
+            this.panel1.Controls.Add(this.MeanFilterButton);
+            this.panel1.Controls.Add(this.MinFilterButton);
+            this.panel1.Controls.Add(this.LogButton);
+            this.panel1.Controls.Add(this.label13);
             this.panel1.Controls.Add(this.NegativeButton);
             this.panel1.Controls.Add(this.label12);
             this.panel1.Controls.Add(this.label7);
@@ -451,18 +467,95 @@ namespace ImageProcessing
             this.panel1.Controls.Add(this.MeanWeightButton);
             this.panel1.Location = new System.Drawing.Point(784, 77);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(314, 360);
+            this.panel1.Size = new System.Drawing.Size(314, 510);
             this.panel1.TabIndex = 16;
             // 
-            // label7
+            // EqualizationButton
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label7.Location = new System.Drawing.Point(12, 9);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(101, 24);
-            this.label7.TabIndex = 1;
-            this.label7.Text = "GrayScale";
+            this.EqualizationButton.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.EqualizationButton.Location = new System.Drawing.Point(8, 183);
+            this.EqualizationButton.Name = "EqualizationButton";
+            this.EqualizationButton.Size = new System.Drawing.Size(96, 37);
+            this.EqualizationButton.TabIndex = 17;
+            this.EqualizationButton.Text = "Equalization";
+            this.EqualizationButton.UseVisualStyleBackColor = true;
+            this.EqualizationButton.Click += new System.EventHandler(this.EqualizationButton_Click);
+            // 
+            // MaxFilterButton
+            // 
+            this.MaxFilterButton.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.MaxFilterButton.Location = new System.Drawing.Point(212, 276);
+            this.MaxFilterButton.Name = "MaxFilterButton";
+            this.MaxFilterButton.Size = new System.Drawing.Size(96, 37);
+            this.MaxFilterButton.TabIndex = 17;
+            this.MaxFilterButton.Text = "Maximum";
+            this.MaxFilterButton.UseVisualStyleBackColor = true;
+            this.MaxFilterButton.Click += new System.EventHandler(this.MaxFilterButton_Click);
+            // 
+            // GammaButton
+            // 
+            this.GammaButton.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.GammaButton.Location = new System.Drawing.Point(212, 140);
+            this.GammaButton.Name = "GammaButton";
+            this.GammaButton.Size = new System.Drawing.Size(96, 37);
+            this.GammaButton.TabIndex = 17;
+            this.GammaButton.Text = "Gamma";
+            this.GammaButton.UseVisualStyleBackColor = true;
+            this.GammaButton.Click += new System.EventHandler(this.GammaButton_Click);
+            // 
+            // MedFilterButton
+            // 
+            this.MedFilterButton.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.MedFilterButton.Location = new System.Drawing.Point(110, 276);
+            this.MedFilterButton.Name = "MedFilterButton";
+            this.MedFilterButton.Size = new System.Drawing.Size(96, 37);
+            this.MedFilterButton.TabIndex = 17;
+            this.MedFilterButton.Text = "Median";
+            this.MedFilterButton.UseVisualStyleBackColor = true;
+            this.MedFilterButton.Click += new System.EventHandler(this.MedFilterButton_Click);
+            // 
+            // MeanFilterButton
+            // 
+            this.MeanFilterButton.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.MeanFilterButton.Location = new System.Drawing.Point(8, 319);
+            this.MeanFilterButton.Name = "MeanFilterButton";
+            this.MeanFilterButton.Size = new System.Drawing.Size(96, 37);
+            this.MeanFilterButton.TabIndex = 17;
+            this.MeanFilterButton.Text = "Mean";
+            this.MeanFilterButton.UseVisualStyleBackColor = true;
+            this.MeanFilterButton.Click += new System.EventHandler(this.MeanFilterButton_Click);
+            // 
+            // MinFilterButton
+            // 
+            this.MinFilterButton.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.MinFilterButton.Location = new System.Drawing.Point(8, 276);
+            this.MinFilterButton.Name = "MinFilterButton";
+            this.MinFilterButton.Size = new System.Drawing.Size(96, 37);
+            this.MinFilterButton.TabIndex = 17;
+            this.MinFilterButton.Text = "Minimum";
+            this.MinFilterButton.UseVisualStyleBackColor = true;
+            this.MinFilterButton.Click += new System.EventHandler(this.MinFilterButton_Click);
+            // 
+            // LogButton
+            // 
+            this.LogButton.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.LogButton.Location = new System.Drawing.Point(110, 140);
+            this.LogButton.Name = "LogButton";
+            this.LogButton.Size = new System.Drawing.Size(96, 37);
+            this.LogButton.TabIndex = 17;
+            this.LogButton.Text = "Logarithmic";
+            this.LogButton.UseVisualStyleBackColor = true;
+            this.LogButton.Click += new System.EventHandler(this.LogButton_Click);
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label13.Location = new System.Drawing.Point(12, 240);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(116, 24);
+            this.label13.TabIndex = 1;
+            this.label13.Text = "Space Filter";
             // 
             // NegativeButton
             // 
@@ -484,6 +577,16 @@ namespace ImageProcessing
             this.label12.Size = new System.Drawing.Size(89, 24);
             this.label12.TabIndex = 1;
             this.label12.Text = "Contrast";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label7.Location = new System.Drawing.Point(12, 9);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(101, 24);
+            this.label7.TabIndex = 1;
+            this.label7.Text = "GrayScale";
             // 
             // Form1
             // 
@@ -583,6 +686,14 @@ namespace ImageProcessing
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button NegativeButton;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Button LogButton;
+        private System.Windows.Forms.Button GammaButton;
+        private System.Windows.Forms.Button EqualizationButton;
+        private System.Windows.Forms.Button MaxFilterButton;
+        private System.Windows.Forms.Button MedFilterButton;
+        private System.Windows.Forms.Button MeanFilterButton;
+        private System.Windows.Forms.Button MinFilterButton;
+        private System.Windows.Forms.Label label13;
     }
 }
 

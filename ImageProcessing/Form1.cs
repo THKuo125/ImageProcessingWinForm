@@ -19,6 +19,7 @@ namespace ImageProcessing
         GrayScale grayScale = new GrayScale();
         Stack<Bitmap> StepStack = new Stack<Bitmap>();
         Contrast contrast = new Contrast();
+        SpaceFilter spacefilter = new SpaceFilter();
 
         public Form1()
         {
@@ -453,6 +454,93 @@ namespace ImageProcessing
         {
             int[,,] rgb = GetRGBData(img_origin);
             Bitmap img_R = SetRGBData(contrast.Negative(rgb, img.Width, img.Height));
+            Result_Image_Box.Image = img_R;
+
+            StepStack.Push(img_R);
+
+            img_result = img_R;
+            ShowBand_R();
+            Histogram_R();
+        }
+
+        private void LogButton_Click(object sender, EventArgs e)
+        {
+            int[,,] rgb = GetRGBData(img_origin);
+            Bitmap img_R = SetRGBData(contrast.Logrithmic(rgb, img.Width, img.Height));
+            Result_Image_Box.Image = img_R;
+
+            StepStack.Push(img_R);
+
+            img_result = img_R;
+            ShowBand_R();
+            Histogram_R();
+        }
+
+        private void GammaButton_Click(object sender, EventArgs e)
+        {
+            int[,,] rgb = GetRGBData(img_origin);
+            Bitmap img_R = SetRGBData(contrast.Gamma(rgb, img.Width, img.Height));
+            Result_Image_Box.Image = img_R;
+
+            StepStack.Push(img_R);
+
+            img_result = img_R;
+            ShowBand_R();
+            Histogram_R();
+        }
+
+        private void EqualizationButton_Click(object sender, EventArgs e)
+        {
+            int[,,] rgb = GetRGBData(img_origin);
+            Bitmap img_R = SetRGBData(contrast.Equalization(rgb, img.Width, img.Height));
+            Result_Image_Box.Image = img_R;
+
+            StepStack.Push(img_R);
+
+            img_result = img_R;
+            ShowBand_R();
+            Histogram_R();
+        }
+        private void MinFilterButton_Click(object sender, EventArgs e)
+        {
+            int[,,] rgb = GetRGBData(img_origin);
+            Bitmap img_R = SetRGBData(spacefilter.Minimum(rgb, img.Width, img.Height));
+            Result_Image_Box.Image = img_R;
+
+            StepStack.Push(img_R);
+
+            img_result = img_R;
+            ShowBand_R();
+            Histogram_R();
+        }
+        private void MedFilterButton_Click(object sender, EventArgs e)
+        {
+            int[,,] rgb = GetRGBData(img_origin);
+            Bitmap img_R = SetRGBData(spacefilter.Median(rgb, img.Width, img.Height));
+            Result_Image_Box.Image = img_R;
+
+            StepStack.Push(img_R);
+
+            img_result = img_R;
+            ShowBand_R();
+            Histogram_R();
+        }
+        private void MaxFilterButton_Click(object sender, EventArgs e)
+        {
+            int[,,] rgb = GetRGBData(img_origin);
+            Bitmap img_R = SetRGBData(spacefilter.Maximum(rgb, img.Width, img.Height));
+            Result_Image_Box.Image = img_R;
+
+            StepStack.Push(img_R);
+
+            img_result = img_R;
+            ShowBand_R();
+            Histogram_R();
+        }
+        private void MeanFilterButton_Click(object sender, EventArgs e)
+        {
+            int[,,] rgb = GetRGBData(img_origin);
+            Bitmap img_R = SetRGBData(spacefilter.Mean(rgb, img.Width, img.Height));
             Result_Image_Box.Image = img_R;
 
             StepStack.Push(img_R);
