@@ -20,6 +20,7 @@ namespace ImageProcessing
         Stack<Bitmap> StepStack = new Stack<Bitmap>();
         Contrast contrast = new Contrast();
         SpaceFilter spacefilter = new SpaceFilter();
+        EdgeDetection edgedetection = new EdgeDetection();
 
         public Form1()
         {
@@ -541,6 +542,92 @@ namespace ImageProcessing
         {
             int[,,] rgb = GetRGBData(img_origin);
             Bitmap img_R = SetRGBData(spacefilter.Mean(rgb, img.Width, img.Height));
+            Result_Image_Box.Image = img_R;
+
+            StepStack.Push(img_R);
+
+            img_result = img_R;
+            ShowBand_R();
+            Histogram_R();
+        }
+        private void Laplacian4Button_Click(object sender, EventArgs e)
+        {
+            int[,,] rgb = GetRGBData(img_origin);
+            Bitmap img_R = SetRGBData(edgedetection.Laplacian4(rgb, img.Width, img.Height));
+            Result_Image_Box.Image = img_R;
+
+            StepStack.Push(img_R);
+
+            img_result = img_R;
+            ShowBand_R();
+            Histogram_R();
+        }
+        private void LaplacianA4Button_Click(object sender, EventArgs e)
+        {
+            int[,,] rgb = GetRGBData(img_origin);
+            Bitmap img_R = SetRGBData(edgedetection.LaplacianAdd4(rgb, img.Width, img.Height));
+            Result_Image_Box.Image = img_R;
+
+            StepStack.Push(img_R);
+
+            img_result = img_R;
+            ShowBand_R();
+            Histogram_R();
+        }
+        private void LaplacianM4Button_Click(object sender, EventArgs e)
+        {
+            int[,,] rgb = GetRGBData(img_origin);
+            Bitmap img_R = SetRGBData(edgedetection.LaplacianMinus4(rgb, img.Width, img.Height));
+            Result_Image_Box.Image = img_R;
+
+            StepStack.Push(img_R);
+
+            img_result = img_R;
+            ShowBand_R();
+            Histogram_R();
+        }
+        
+        private void Laplacian9Button_Click(object sender, EventArgs e)
+        {
+            int[,,] rgb = GetRGBData(img_origin);
+            Bitmap img_R = SetRGBData(edgedetection.Laplacian9(rgb, img.Width, img.Height));
+            Result_Image_Box.Image = img_R;
+
+            StepStack.Push(img_R);
+
+            img_result = img_R;
+            ShowBand_R();
+            Histogram_R();
+        }
+        private void LaplacianA9Button_Click(object sender, EventArgs e)
+        {
+            int[,,] rgb = GetRGBData(img_origin);
+            Bitmap img_R = SetRGBData(edgedetection.LaplacianAdd9(rgb, img.Width, img.Height));
+            Result_Image_Box.Image = img_R;
+
+            StepStack.Push(img_R);
+
+            img_result = img_R;
+            ShowBand_R();
+            Histogram_R();
+        }
+        private void LaplacianM9Button_Click(object sender, EventArgs e)
+        {
+            int[,,] rgb = GetRGBData(img_origin);
+            Bitmap img_R = SetRGBData(edgedetection.LaplacianMinus9(rgb, img.Width, img.Height));
+            Result_Image_Box.Image = img_R;
+
+            StepStack.Push(img_R);
+
+            img_result = img_R;
+            ShowBand_R();
+            Histogram_R();
+        }
+        
+        private void SobelButton_Click(object sender, EventArgs e)
+        {
+            int[,,] rgb = GetRGBData(img_origin);
+            Bitmap img_R = SetRGBData(edgedetection.Sobel(rgb, img.Width, img.Height));
             Result_Image_Box.Image = img_R;
 
             StepStack.Push(img_R);

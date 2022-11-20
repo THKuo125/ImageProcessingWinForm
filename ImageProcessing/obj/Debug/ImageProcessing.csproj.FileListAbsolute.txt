@@ -68,3 +68,13 @@ C:\Users\User\Downloads\ImageProcessingWinForm-main-20221028T011610Z-001\ImagePr
 C:\Users\User\Downloads\ImageProcessingWinForm-main-20221028T011610Z-001\ImageProcessingWinForm-main\ImageProcessing\obj\Debug\ImageProcessing.csproj.CoreCompileInputs.cache
 C:\Users\User\Downloads\ImageProcessingWinForm-main-20221028T011610Z-001\ImageProcessingWinForm-main\ImageProcessing\obj\Debug\ImageProcessing.exe
 C:\Users\User\Downloads\ImageProcessingWinForm-main-20221028T011610Z-001\ImageProcessingWinForm-main\ImageProcessing\obj\Debug\ImageProcessing.pdb
+C:\Users\User\Downloads\ImageProcessingWinForm main\ImageProcessingWinForm main\ImageProcessing\bin\Debug\ImageProcessing.exe.config
+C:\Users\User\Downloads\ImageProcessingWinForm main\ImageProcessingWinForm main\ImageProcessing\bin\Debug\ImageProcessing.exe
+C:\Users\User\Downloads\ImageProcessingWinForm main\ImageProcessingWinForm main\ImageProcessing\bin\Debug\ImageProcessing.pdb
+C:\Users\User\Downloads\ImageProcessingWinForm main\ImageProcessingWinForm main\ImageProcessing\obj\Debug\ImageProcessing.csproj.AssemblyReference.cache
+C:\Users\User\Downloads\ImageProcessingWinForm main\ImageProcessingWinForm main\ImageProcessing\obj\Debug\ImageProcessing.Form1.resources
+C:\Users\User\Downloads\ImageProcessingWinForm main\ImageProcessingWinForm main\ImageProcessing\obj\Debug\ImageProcessing.Properties.Resources.resources
+C:\Users\User\Downloads\ImageProcessingWinForm main\ImageProcessingWinForm main\ImageProcessing\obj\Debug\ImageProcessing.csproj.GenerateResource.cache
+C:\Users\User\Downloads\ImageProcessingWinForm main\ImageProcessingWinForm main\ImageProcessing\obj\Debug\ImageProcessing.csproj.CoreCompileInputs.cache
+C:\Users\User\Downloads\ImageProcessingWinForm main\ImageProcessingWinForm main\ImageProcessing\obj\Debug\ImageProcessing.exe
+C:\Users\User\Downloads\ImageProcessingWinForm main\ImageProcessingWinForm main\ImageProcessing\obj\Debug\ImageProcessing.pdb

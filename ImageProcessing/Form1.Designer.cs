@@ -74,6 +74,14 @@ namespace ImageProcessing
             this.NegativeButton = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.Laplacian4Button = new System.Windows.Forms.Button();
+            this.LaplacianM4Button = new System.Windows.Forms.Button();
+            this.LaplacianA4Button = new System.Windows.Forms.Button();
+            this.Laplacian9Button = new System.Windows.Forms.Button();
+            this.LaplacianM9Button = new System.Windows.Forms.Button();
+            this.LaplacianA9Button = new System.Windows.Forms.Button();
+            this.SobelButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.Original_Image_Box)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.O_R_Band)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.O_G_Band)).BeginInit();
@@ -418,7 +426,7 @@ namespace ImageProcessing
             // MeanWeightButton
             // 
             this.MeanWeightButton.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.MeanWeightButton.Location = new System.Drawing.Point(8, 46);
+            this.MeanWeightButton.Location = new System.Drawing.Point(8, 44);
             this.MeanWeightButton.Name = "MeanWeightButton";
             this.MeanWeightButton.Size = new System.Drawing.Size(96, 37);
             this.MeanWeightButton.TabIndex = 0;
@@ -429,7 +437,7 @@ namespace ImageProcessing
             // MeanValueButton
             // 
             this.MeanValueButton.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.MeanValueButton.Location = new System.Drawing.Point(110, 46);
+            this.MeanValueButton.Location = new System.Drawing.Point(110, 44);
             this.MeanValueButton.Name = "MeanValueButton";
             this.MeanValueButton.Size = new System.Drawing.Size(96, 37);
             this.MeanValueButton.TabIndex = 0;
@@ -440,7 +448,7 @@ namespace ImageProcessing
             // MaximumButton
             // 
             this.MaximumButton.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.MaximumButton.Location = new System.Drawing.Point(212, 46);
+            this.MaximumButton.Location = new System.Drawing.Point(212, 44);
             this.MaximumButton.Name = "MaximumButton";
             this.MaximumButton.Size = new System.Drawing.Size(96, 37);
             this.MaximumButton.TabIndex = 0;
@@ -456,8 +464,16 @@ namespace ImageProcessing
             this.panel1.Controls.Add(this.GammaButton);
             this.panel1.Controls.Add(this.MedFilterButton);
             this.panel1.Controls.Add(this.MeanFilterButton);
+            this.panel1.Controls.Add(this.LaplacianA9Button);
+            this.panel1.Controls.Add(this.LaplacianA4Button);
+            this.panel1.Controls.Add(this.LaplacianM9Button);
+            this.panel1.Controls.Add(this.Laplacian9Button);
+            this.panel1.Controls.Add(this.LaplacianM4Button);
+            this.panel1.Controls.Add(this.SobelButton);
+            this.panel1.Controls.Add(this.Laplacian4Button);
             this.panel1.Controls.Add(this.MinFilterButton);
             this.panel1.Controls.Add(this.LogButton);
+            this.panel1.Controls.Add(this.label14);
             this.panel1.Controls.Add(this.label13);
             this.panel1.Controls.Add(this.NegativeButton);
             this.panel1.Controls.Add(this.label12);
@@ -467,13 +483,13 @@ namespace ImageProcessing
             this.panel1.Controls.Add(this.MeanWeightButton);
             this.panel1.Location = new System.Drawing.Point(784, 77);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(314, 510);
+            this.panel1.Size = new System.Drawing.Size(314, 568);
             this.panel1.TabIndex = 16;
             // 
             // EqualizationButton
             // 
             this.EqualizationButton.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.EqualizationButton.Location = new System.Drawing.Point(8, 183);
+            this.EqualizationButton.Location = new System.Drawing.Point(8, 176);
             this.EqualizationButton.Name = "EqualizationButton";
             this.EqualizationButton.Size = new System.Drawing.Size(96, 37);
             this.EqualizationButton.TabIndex = 17;
@@ -484,7 +500,7 @@ namespace ImageProcessing
             // MaxFilterButton
             // 
             this.MaxFilterButton.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.MaxFilterButton.Location = new System.Drawing.Point(212, 276);
+            this.MaxFilterButton.Location = new System.Drawing.Point(212, 271);
             this.MaxFilterButton.Name = "MaxFilterButton";
             this.MaxFilterButton.Size = new System.Drawing.Size(96, 37);
             this.MaxFilterButton.TabIndex = 17;
@@ -495,7 +511,7 @@ namespace ImageProcessing
             // GammaButton
             // 
             this.GammaButton.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.GammaButton.Location = new System.Drawing.Point(212, 140);
+            this.GammaButton.Location = new System.Drawing.Point(212, 133);
             this.GammaButton.Name = "GammaButton";
             this.GammaButton.Size = new System.Drawing.Size(96, 37);
             this.GammaButton.TabIndex = 17;
@@ -506,7 +522,7 @@ namespace ImageProcessing
             // MedFilterButton
             // 
             this.MedFilterButton.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.MedFilterButton.Location = new System.Drawing.Point(110, 276);
+            this.MedFilterButton.Location = new System.Drawing.Point(110, 271);
             this.MedFilterButton.Name = "MedFilterButton";
             this.MedFilterButton.Size = new System.Drawing.Size(96, 37);
             this.MedFilterButton.TabIndex = 17;
@@ -517,7 +533,7 @@ namespace ImageProcessing
             // MeanFilterButton
             // 
             this.MeanFilterButton.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.MeanFilterButton.Location = new System.Drawing.Point(8, 319);
+            this.MeanFilterButton.Location = new System.Drawing.Point(8, 314);
             this.MeanFilterButton.Name = "MeanFilterButton";
             this.MeanFilterButton.Size = new System.Drawing.Size(96, 37);
             this.MeanFilterButton.TabIndex = 17;
@@ -528,7 +544,7 @@ namespace ImageProcessing
             // MinFilterButton
             // 
             this.MinFilterButton.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.MinFilterButton.Location = new System.Drawing.Point(8, 276);
+            this.MinFilterButton.Location = new System.Drawing.Point(8, 271);
             this.MinFilterButton.Name = "MinFilterButton";
             this.MinFilterButton.Size = new System.Drawing.Size(96, 37);
             this.MinFilterButton.TabIndex = 17;
@@ -539,7 +555,7 @@ namespace ImageProcessing
             // LogButton
             // 
             this.LogButton.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.LogButton.Location = new System.Drawing.Point(110, 140);
+            this.LogButton.Location = new System.Drawing.Point(110, 133);
             this.LogButton.Name = "LogButton";
             this.LogButton.Size = new System.Drawing.Size(96, 37);
             this.LogButton.TabIndex = 17;
@@ -551,7 +567,7 @@ namespace ImageProcessing
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label13.Location = new System.Drawing.Point(12, 240);
+            this.label13.Location = new System.Drawing.Point(12, 235);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(116, 24);
             this.label13.TabIndex = 1;
@@ -560,7 +576,7 @@ namespace ImageProcessing
             // NegativeButton
             // 
             this.NegativeButton.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.NegativeButton.Location = new System.Drawing.Point(8, 140);
+            this.NegativeButton.Location = new System.Drawing.Point(8, 133);
             this.NegativeButton.Name = "NegativeButton";
             this.NegativeButton.Size = new System.Drawing.Size(96, 37);
             this.NegativeButton.TabIndex = 17;
@@ -572,7 +588,7 @@ namespace ImageProcessing
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label12.Location = new System.Drawing.Point(12, 104);
+            this.label12.Location = new System.Drawing.Point(12, 98);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(89, 24);
             this.label12.TabIndex = 1;
@@ -587,6 +603,93 @@ namespace ImageProcessing
             this.label7.Size = new System.Drawing.Size(101, 24);
             this.label7.TabIndex = 1;
             this.label7.Text = "GrayScale";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label14.Location = new System.Drawing.Point(12, 370);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(151, 24);
+            this.label14.TabIndex = 1;
+            this.label14.Text = "Edge Detection";
+            // 
+            // Laplacian4Button
+            // 
+            this.Laplacian4Button.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.Laplacian4Button.Location = new System.Drawing.Point(8, 446);
+            this.Laplacian4Button.Name = "Laplacian4Button";
+            this.Laplacian4Button.Size = new System.Drawing.Size(96, 37);
+            this.Laplacian4Button.TabIndex = 17;
+            this.Laplacian4Button.Text = "Laplacian (4)";
+            this.Laplacian4Button.UseVisualStyleBackColor = true;
+            this.Laplacian4Button.Click += new System.EventHandler(this.Laplacian4Button_Click);
+            // 
+            // LaplacianM4Button
+            // 
+            this.LaplacianM4Button.Font = new System.Drawing.Font("微軟正黑體", 6.5F);
+            this.LaplacianM4Button.Location = new System.Drawing.Point(212, 446);
+            this.LaplacianM4Button.Name = "LaplacianM4Button";
+            this.LaplacianM4Button.Size = new System.Drawing.Size(96, 37);
+            this.LaplacianM4Button.TabIndex = 17;
+            this.LaplacianM4Button.Text = "Laplacian minus (4)";
+            this.LaplacianM4Button.UseVisualStyleBackColor = true;
+            this.LaplacianM4Button.Click += new System.EventHandler(this.LaplacianM4Button_Click);
+            // 
+            // LaplacianA4Button
+            // 
+            this.LaplacianA4Button.Font = new System.Drawing.Font("微軟正黑體", 6.5F);
+            this.LaplacianA4Button.Location = new System.Drawing.Point(110, 446);
+            this.LaplacianA4Button.Name = "LaplacianA4Button";
+            this.LaplacianA4Button.Size = new System.Drawing.Size(96, 37);
+            this.LaplacianA4Button.TabIndex = 17;
+            this.LaplacianA4Button.Text = "Laplacian add (4)";
+            this.LaplacianA4Button.UseVisualStyleBackColor = true;
+            this.LaplacianA4Button.Click += new System.EventHandler(this.LaplacianA4Button_Click);
+            // 
+            // Laplacian9Button
+            // 
+            this.Laplacian9Button.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.Laplacian9Button.Location = new System.Drawing.Point(8, 489);
+            this.Laplacian9Button.Name = "Laplacian9Button";
+            this.Laplacian9Button.Size = new System.Drawing.Size(96, 37);
+            this.Laplacian9Button.TabIndex = 17;
+            this.Laplacian9Button.Text = "Laplacian (9)";
+            this.Laplacian9Button.UseVisualStyleBackColor = true;
+            this.Laplacian9Button.Click += new System.EventHandler(this.Laplacian9Button_Click);
+            // 
+            // LaplacianM9Button
+            // 
+            this.LaplacianM9Button.Font = new System.Drawing.Font("微軟正黑體", 6.5F);
+            this.LaplacianM9Button.Location = new System.Drawing.Point(212, 489);
+            this.LaplacianM9Button.Name = "LaplacianM9Button";
+            this.LaplacianM9Button.Size = new System.Drawing.Size(96, 37);
+            this.LaplacianM9Button.TabIndex = 17;
+            this.LaplacianM9Button.Text = "Laplacian minus (9)";
+            this.LaplacianM9Button.UseVisualStyleBackColor = true;
+            this.LaplacianM9Button.Click += new System.EventHandler(this.LaplacianM9Button_Click);
+            // 
+            // LaplacianA9Button
+            // 
+            this.LaplacianA9Button.Font = new System.Drawing.Font("微軟正黑體", 6.5F);
+            this.LaplacianA9Button.Location = new System.Drawing.Point(110, 490);
+            this.LaplacianA9Button.Name = "LaplacianA9Button";
+            this.LaplacianA9Button.Size = new System.Drawing.Size(96, 37);
+            this.LaplacianA9Button.TabIndex = 17;
+            this.LaplacianA9Button.Text = "Laplacian add (9)";
+            this.LaplacianA9Button.UseVisualStyleBackColor = true;
+            this.LaplacianA9Button.Click += new System.EventHandler(this.LaplacianA9Button_Click);
+            // 
+            // SobelButton
+            // 
+            this.SobelButton.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.SobelButton.Location = new System.Drawing.Point(8, 403);
+            this.SobelButton.Name = "SobelButton";
+            this.SobelButton.Size = new System.Drawing.Size(96, 37);
+            this.SobelButton.TabIndex = 17;
+            this.SobelButton.Text = "Sobel";
+            this.SobelButton.UseVisualStyleBackColor = true;
+            this.SobelButton.Click += new System.EventHandler(this.SobelButton_Click);
             // 
             // Form1
             // 
@@ -694,6 +797,14 @@ namespace ImageProcessing
         private System.Windows.Forms.Button MeanFilterButton;
         private System.Windows.Forms.Button MinFilterButton;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Button LaplacianA9Button;
+        private System.Windows.Forms.Button LaplacianA4Button;
+        private System.Windows.Forms.Button LaplacianM9Button;
+        private System.Windows.Forms.Button Laplacian9Button;
+        private System.Windows.Forms.Button LaplacianM4Button;
+        private System.Windows.Forms.Button SobelButton;
+        private System.Windows.Forms.Button Laplacian4Button;
+        private System.Windows.Forms.Label label14;
     }
 }
 
